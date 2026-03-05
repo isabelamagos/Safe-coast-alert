@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* --- Sistema Semántico Principal (Modo Claro) --- */
+    --background: #F4F7FB; 
+    --foreground: #001324; 
+    
+    --card: #FFFFFF; 
+    --card-foreground: #001E36;
+    
+    --border: #D1DBE8; 
+    
+    --primary: #0082C2; 
+    --primary-foreground: #FFFFFF;
+
+    /* --- Sistema Tipográfico Secundario --- */
+    --muted: #E2E8F0; /* Fondos para etiquetas o botones inactivos */
+    --muted-foreground: #64748B; /* Texto secundario para fechas, horas y subtítulos */
+
+    /* --- Sistema de Estados y Banderas Costeras --- */
+    --alert: #E64A19; /* Peligro / Bandera Roja / Oleaje Alto */
+    --alert-foreground: #FFFFFF;
+    
+    --warning: #F59E0B; /* Precaución / Bandera Amarilla / Medusas */
+    --warning-foreground: #001324; /* Texto oscuro sobre fondo ámbar para legibilidad */
+    
+    --success: #10B981; /* Seguro / Bandera Verde / Condiciones óptimas */
+    --success-foreground: #FFFFFF;
+
+    /* --- Paleta Base Escalonada (Ocean Blue) --- */
+    --ocean-50: #E1F6FF;
+    --ocean-100: #B3E8FF;
+    --ocean-200: #80D9FF;
+    --ocean-300: #4DC9FF;
+    --ocean-400: #21BCFF; 
+    --ocean-500: #00A3EB;
+    --ocean-600: #0082C2;
+    --ocean-700: #006296;
+    --ocean-800: #00436B;
+    --ocean-900: #002540;
+    --ocean-950: #001324;
+  }
+
+  .dark {
+    /* --- Sistema Semántico Principal (Modo Oscuro) --- */
+    --background: #000E21; 
+    --foreground: #E1F6FF; 
+    
+    --card: #011A3A; 
+    --card-foreground: #B3E8FF;
+    
+    --border: #002540; 
+    
+    --primary: #21BCFF; 
+    --primary-foreground: #001324; 
+
+    /* --- Sistema Tipográfico Secundario --- */
+    --muted: #001E36; 
+    --muted-foreground: #94A3B8; 
+
+    /* --- Sistema de Estados y Banderas Costeras --- */
+    --alert: #FF6421; 
+    --alert-foreground: #FFFFFF;
+    
+    --warning: #FCD34D; /* Ámbar desaturado */
+    --warning-foreground: #001324;
+    
+    --success: #34D399; /* Esmeralda desaturado */
+    --success-foreground: #001324;
+  }
+}
