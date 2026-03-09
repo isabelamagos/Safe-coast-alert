@@ -30,6 +30,10 @@ module.exports = {
         },
 
         // Sistema de estados (Banderas)
+        critical: {
+          DEFAULT: 'var(--critical)',
+          foreground: 'var(--critical-foreground)',
+        },
         alert: {
           DEFAULT: 'var(--alert)',
           foreground: 'var(--alert-foreground)',

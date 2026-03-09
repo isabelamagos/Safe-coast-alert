@@ -21,14 +21,17 @@
     --muted-foreground: #64748B; /* Texto secundario para fechas, horas y subtítulos */
 
     /* --- Sistema de Estados y Banderas Costeras --- */
-    --alert: #E64A19; /* Peligro / Bandera Roja / Oleaje Alto */
+    --critical: #000000; /* Peligro Extremo / Bandera Negra / Playa Cerrada */
+    --critical-foreground: #FFFFFF;
+
+    --alert: #e61919; /* Peligro / Bandera Roja / Condiciones peligrosas */
     --alert-foreground: #FFFFFF;
     
-    --warning: #F59E0B; /* Precaución / Bandera Amarilla / Medusas */
-    --warning-foreground: #001324; /* Texto oscuro sobre fondo ámbar para legibilidad */
+    --warning: #F59E0B; /* Precaución / Bandera Amarilla / Condiciones moderadas */
+    --warning-foreground: #001324;
     
-    --success: #10B981; /* Seguro / Bandera Verde / Condiciones óptimas */
-    --success-foreground: #FFFFFF;
+    --success: #10b929; /* Seguro / Bandera Verde / Condiciones seguras */
+    --success-foreground: #001324;
 
     /* --- Paleta Base Escalonada (Ocean Blue) --- */
     --ocean-50: #E1F6FF;
@@ -44,7 +47,8 @@
     --ocean-950: #001324;
   }
 
-  .dark {
+  @media (prefers-color-scheme: dark) {
+  :root {
     /* --- Sistema Semántico Principal (Modo Oscuro) --- */
     --background: #000E21; 
     --foreground: #E1F6FF; 
@@ -62,13 +66,17 @@
     --muted-foreground: #94A3B8; 
 
     /* --- Sistema de Estados y Banderas Costeras --- */
-    --alert: #FF6421; 
-    --alert-foreground: #FFFFFF;
+    --critical: #000000;
+    --critical-foreground: #FFFFFF;
+
+    --alert: #fc3718; 
+    --alert-foreground: #001324;
     
-    --warning: #FCD34D; /* Ámbar desaturado */
+    --warning: #FCD34D;
     --warning-foreground: #001324;
     
-    --success: #34D399; /* Esmeralda desaturado */
+    --success: #34d35e;
     --success-foreground: #001324;
   }
+}
 }
