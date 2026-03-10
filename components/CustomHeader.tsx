@@ -17,7 +17,7 @@ export default function CustomHeader({ title }: CustomHeaderProps) {
       className="flex-row items-center justify-between border-b border-border bg-card px-4 pb-3"
       style={{ paddingTop: insets.top + 12 }}>
       {/* Botón de regreso */}
-      <View className="w-12 items-start justify-center">
+      <View className="min-h-[40px] w-12 items-start justify-center">
         {canGoBack && (
           <Pressable
             onPress={() => router.back()}
@@ -36,14 +36,14 @@ export default function CustomHeader({ title }: CustomHeaderProps) {
       </View>
 
       {/* Menú Drawer (Placeholder) */}
-      <View className="w-12 items-end justify-center">
-        <Pressable
-          // Solo está en el figma, no tiene definida una función hasta el momento
+      {/* Estará comentado por ahora, ya que no se ha definido su función ni diseño en el Figma */}
+      <View className="min-h-[40px] w-12 items-end justify-center">
+        {/* <Pressable
           onPress={() => console.log('Lógica del drawer si se llega a implementar')}
           className="-mr-2 p-2 active:opacity-70"
           hitSlop={10}>
           <Feather name="menu" size={24} className="text-foreground" />
-        </Pressable>
+        </Pressable> */}
       </View>
     </View>
   );
