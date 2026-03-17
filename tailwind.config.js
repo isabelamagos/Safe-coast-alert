@@ -23,6 +23,17 @@ module.exports = {
           foreground: 'var(--primary-foreground)',
         },
 
+        secondary: {
+          DEFAULT: 'var(--secondary)',
+          foreground: 'var(--secondary-foreground)',
+        },
+
+        // Color personalizado para el header
+        header: {
+          DEFAULT: 'var(--header)',
+          foreground: 'var(--header-foreground)',
+        },
+
         // Jerarquía de información
         muted: {
           DEFAULT: 'var(--muted)',

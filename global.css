@@ -13,10 +13,16 @@
     
     --border: #D1DBE8; 
     
-    --primary: #0082C2; 
+    --primary: #0D4D79; 
     --primary-foreground: #FFFFFF;
 
+    --secondary: #EBBB22;
+    --secondary-foreground: #2D2E2E;
+
     /* --- Sistema Tipográfico Secundario --- */
+    --header: #5085A5; /* Para el header */
+    --header-foreground: #A9C5DB;
+
     --muted: #E2E8F0; /* Fondos para etiquetas o botones inactivos */
     --muted-foreground: #64748B; /* Texto secundario para fechas, horas y subtítulos */
 

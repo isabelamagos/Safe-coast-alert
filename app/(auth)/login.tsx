@@ -19,9 +19,9 @@ export default function LoginScreen() {
     <SafeAreaView className="flex-1 bg-background">
       <View className="mb-10 mt-32 items-center">
         <Image
-          source={require('@/assets/icon.png')} // Placeholder, falta el logo real
-          className="mb-4 h-36 w-36"
-          contentFit="contain"
+          source={require('@/assets/logo-fondo-blanco.png')}
+          className="mb-4 h-40 w-40"
+          contentFit="cover"
         />
         <Text className="mb-2 text-5xl font-bold text-foreground">SafeCoast</Text>
         <Text className="text-lg text-muted-foreground">Seguridad en el mar en tiempo real</Text>
@@ -42,9 +42,7 @@ export default function LoginScreen() {
           <View className="mb-6 items-end">
             <Link href="/(auth)/registro" asChild>
               {/* Falta la ruta de recuperación de contraseña */}
-              <Text className="text-sm tracking-wide text-muted-foreground">
-                ¿Olvidaste tu contraseña?
-              </Text>
+              <Text className="tracking-wide text-muted-foreground">¿Olvidaste tu contraseña?</Text>
             </Link>
           </View>
           <Pressable
@@ -53,9 +51,9 @@ export default function LoginScreen() {
             <Text className="text-lg font-bold text-primary-foreground">Iniciar sesión</Text>
           </Pressable>
           <View className="flex-row justify-center pb-12">
-            <Text className="font-light text-ocean-600">¿No tienes una cuenta? </Text>
+            <Text className="font-light text-ocean-950">¿No tienes una cuenta? </Text>
             <Link href="/(auth)/registro" asChild>
-              <Text className="font-bold text-primary">Regístrate</Text>
+              <Text className="font-bold text-ocean-950">Regístrate</Text>
             </Link>
           </View>
         </View>
