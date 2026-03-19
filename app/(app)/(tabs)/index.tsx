@@ -1,10 +1,18 @@
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
+import FilterBar from '@/components/FilterBar';
+import { useFilters } from '@/hooks/useFilters';
+import { FILTER_DATA_MOCK } from '@/mocks/filterData';
 
 export default function InicioScreen() {
+  const { selectedFilters, toggleFilter } = useFilters();
+
   return (
-    <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-xl font-bold text-foreground">Pantalla de Inicio</Text>
-      <Text className="mt-2 text-muted-foreground">El mapa y alertas irán aquí</Text>
+    <View className="flex-1 items-center bg-background">
+      <FilterBar
+        data={FILTER_DATA_MOCK}
+        selectedFilters={selectedFilters}
+        onFilterSelect={toggleFilter}
+      />
     </View>
   );
 }
