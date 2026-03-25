@@ -15,7 +15,7 @@ export default function CustomHeader({ title }: CustomHeaderProps) {
 
   return (
     <View
-      className="bg-header flex-row items-center justify-between border-b border-border px-4 pb-3"
+      className="flex-row items-center justify-between border-b border-border bg-header px-4 pb-3"
       style={{ paddingTop: insets.top + 12 }}>
       {/* Botón de regreso */}
       <View className="min-h-[40px] w-12 items-start justify-center">
@@ -31,19 +31,22 @@ export default function CustomHeader({ title }: CustomHeaderProps) {
 
       {/* Título de la pantalla */}
       <View className="flex-1 items-center justify-center">
-        <Text className="text-header-foreground text-lg font-bold tracking-tight" numberOfLines={1}>
+        <Text className="text-lg font-bold tracking-tight text-header-foreground" numberOfLines={1}>
           {title}
         </Text>
       </View>
 
       {/* Logo con propósito estético */}
-      <View className="min-h-[40px] w-12 items-end justify-center">
+      {/* De manera provisional, sirve para regresar al login */}
+      <Pressable
+        className="min-h-[40px] w-12 items-end justify-center"
+        onPress={() => router.replace('/(auth)/login')}>
         <Image
           source={require('@/assets/logo-sin-fondo.png')}
           className="h-10 w-10"
           contentFit="contain"
         />
-      </View>
+      </Pressable>
     </View>
   );
 }
