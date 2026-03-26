@@ -10,7 +10,7 @@ export default function InicioScreen() {
 
   return (
     <View className="flex-1 bg-background">
-      <View className="mb-4 w-full items-center">
+      <View className="mb-4">
         <FilterBar
           data={FILTER_DATA_MOCK}
           selectedFilters={selectedFilters}
