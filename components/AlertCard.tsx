@@ -1,7 +1,9 @@
 import { Pressable, View, Text } from 'react-native';
 import { Image } from 'expo-image';
+import { router } from 'expo-router';
 
 interface AlertCardProps {
+  id: string;
   date: string;
   title: string;
   source: string;
@@ -9,9 +11,18 @@ interface AlertCardProps {
   imageUrl: string;
 }
 
-export default function AlertCard({ date, title, source, description, imageUrl }: AlertCardProps) {
+export default function AlertCard({
+  id,
+  date,
+  title,
+  source,
+  description,
+  imageUrl,
+}: AlertCardProps) {
   return (
-    <Pressable className="mb-6 flex-row active:opacity-80">
+    <Pressable
+      className="mb-6 flex-row active:opacity-80"
+      onPress={() => router.push(`/forum/${id}`)}>
       <View className="w-3/5 justify-center pr-1">
         <Text className="text-sm text-muted-foreground" numberOfLines={1}>
           {date}

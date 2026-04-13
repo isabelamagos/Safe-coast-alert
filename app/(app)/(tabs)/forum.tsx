@@ -15,7 +15,7 @@ export default function ForumScreen() {
         <Text className="text-3xl font-bold">Foro oficial</Text>
         <Pressable
           className="items-center rounded-lg bg-primary py-3 active:opacity-80"
-          onPress={() => router.push('/(app)/crear-hilo')}>
+          onPress={() => router.push('/crear-hilo')}>
           <Text className="mx-8 text-lg font-bold text-primary-foreground">Nuevo Hilo</Text>
         </Pressable>
       </View>
@@ -35,6 +35,7 @@ export default function ForumScreen() {
         }}
         renderItem={({ item }) => (
           <AlertCard
+            id={item.id}
             date={item.date}
             title={item.title}
             source={item.source}
