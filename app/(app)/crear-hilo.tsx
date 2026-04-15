@@ -1,10 +1,14 @@
-import { View, Text } from 'react-native';
+import BaseInput from '@/components/BaseInput';
+import { ScrollView } from 'react-native';
 
 export default function CrearHiloScreen() {
   return (
-    <View className="flex-1 items-center justify-center bg-background">
-      <Text className="text-xl font-bold text-foreground">Pantalla de Crear un nuevo hilo</Text>
-      <Text className="mt-2 text-muted-foreground">Contenido del hilo</Text>
-    </View>
+    <ScrollView
+      className="flex-1 bg-background"
+      contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: 40, paddingTop: 16 }}
+      showsVerticalScrollIndicator={false}>
+      <BaseInput placeholder="Título del hilo" className="mb-4" />
+      <BaseInput placeholder="" multiline={true} numberOfLines={5} />
+    </ScrollView>
   );
 }

@@ -14,6 +14,7 @@ export default function BaseInput({
   className = '',
   onFocus,
   onBlur,
+  multiline,
   ...props
 }: BaseInputProps) {
   const [isFocused, setIsFocused] = useState(false);
@@ -24,15 +25,19 @@ export default function BaseInput({
       ? 'border-primary'
       : 'border-border';
 
+  const multilineStyles = multiline ? 'items-start' : 'items-center';
+
   return (
     <View className={`mb-6 ${className}`}>
       <View
-        className={`min-h-[54px] flex-row items-center rounded-lg border bg-card px-3 ${borderColor}`}>
-        {leftElement && <View className="mr-2">{leftElement}</View>}
+        className={`min-h-16 flex-row items-center rounded-lg border bg-card px-3 ${borderColor} ${multilineStyles}`}>
+        {leftElement && <View className={multiline ? 'mr-2 mt-1' : 'mr-2'}>{leftElement}</View>}
 
         <TextInput
-          className="flex-1 text-lg text-foreground"
+          className={`flex-1 text-lg text-foreground ${multiline ? 'min-h-28' : ''}`}
           placeholderTextColor="#9CA3AF"
+          multiline={multiline}
+          textAlignVertical={multiline ? 'top' : 'center'}
           onFocus={(e) => {
             setIsFocused(true);
             onFocus?.(e);
@@ -44,7 +49,7 @@ export default function BaseInput({
           {...props}
         />
 
-        {rightElement && <View className="ml-2">{rightElement}</View>}
+        {rightElement && <View className={multiline ? 'ml-2 mt-1' : 'ml-2'}>{rightElement}</View>}
       </View>
 
       {errorMessage && <Text className="mt-1 text-sm text-red-500">{errorMessage}</Text>}

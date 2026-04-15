@@ -10,6 +10,9 @@
     
     --card: #FFFFFF; 
     --card-foreground: #001E36;
+
+    --input: #E8EBF2;
+    --input-foreground: #6B6A6A;
     
     --border: #D1DBE8; 
     
@@ -20,7 +23,7 @@
     --secondary-foreground: #2D2E2E;
 
     /* --- Sistema Tipográfico Secundario --- */
-    --header: #5085A5; /* Para el header */
+    --header: #5085A5;
     --header-foreground: #A9C5DB;
 
     --muted: #E2E8F0; /* Fondos para etiquetas o botones inactivos */

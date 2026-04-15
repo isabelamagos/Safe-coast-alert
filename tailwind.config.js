@@ -17,6 +17,11 @@ module.exports = {
           foreground: 'var(--card-foreground)',
         },
 
+        input: {
+          DEFAULT: 'var(--input)',
+          foreground: 'var(--input-foreground)',
+        },
+
         // Colores de marca
         primary: {
           DEFAULT: 'var(--primary)',
