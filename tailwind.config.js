@@ -48,18 +48,22 @@ module.exports = {
         // Sistema de estados (Banderas)
         critical: {
           DEFAULT: 'var(--critical)',
+          background: 'var(--critical-background)',
           foreground: 'var(--critical-foreground)',
         },
         alert: {
           DEFAULT: 'var(--alert)',
+          background: 'var(--alert-background)',
           foreground: 'var(--alert-foreground)',
         },
         warning: {
           DEFAULT: 'var(--warning)',
+          background: 'var(--warning-background)',
           foreground: 'var(--warning-foreground)',
         },
         success: {
           DEFAULT: 'var(--success)',
+          background: 'var(--success-background)',
           foreground: 'var(--success-foreground)',
         },
 

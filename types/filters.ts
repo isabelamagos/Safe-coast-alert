@@ -10,3 +10,9 @@ export interface FilterCategory {
 }
 
 export type SelectedFiltersState = Record<string, string>;
+
+export interface FilterBarProps {
+  data: FilterCategory[];
+  selectedFilters: SelectedFiltersState;
+  onFilterSelect: (categoryId: string, value: string) => void;
+}

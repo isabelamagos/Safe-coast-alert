@@ -5,11 +5,14 @@ interface BeachCardProps {
   imageUrl: string;
   name: string;
   location: string;
+  onPress: () => void;
 }
 
-export default function BeachCard({ imageUrl, name, location }: BeachCardProps) {
+export default function BeachCard({ imageUrl, name, location, onPress }: BeachCardProps) {
   return (
-    <Pressable className="h-48 flex-1 rounded-xl border border-border bg-card p-2 active:opacity-80">
+    <Pressable
+      onPress={onPress}
+      className="h-48 flex-1 rounded-xl border border-border bg-card p-2 active:opacity-80">
       <Image
         source={{ uri: imageUrl }}
         className="mb-3 h-28 w-full rounded-md"

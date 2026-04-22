@@ -31,15 +31,19 @@
 
     /* --- Sistema de Estados y Banderas Costeras --- */
     --critical: #000000; /* Peligro Extremo / Bandera Negra / Playa Cerrada */
+    --critical-background: #cbcbcb;
     --critical-foreground: #FFFFFF;
 
     --alert: #e61919; /* Peligro / Bandera Roja / Condiciones peligrosas */
+    --alert-background: #fee2e2;
     --alert-foreground: #FFFFFF;
     
     --warning: #F59E0B; /* Precaución / Bandera Amarilla / Condiciones moderadas */
+    --warning-background: #FEF3C7;
     --warning-foreground: #001324;
     
     --success: #10b929; /* Seguro / Bandera Verde / Condiciones seguras */
+    --success-background: #cdfad5;
     --success-foreground: #001324;
 
     /* --- Paleta Base Escalonada (Ocean Blue) --- */

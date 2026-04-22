@@ -1,46 +1,51 @@
 import React, { useState } from 'react';
-import { View, Text, FlatList, Pressable, Modal } from 'react-native';
+import { View, Text, FlatList, Pressable } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { FilterCategory, SelectedFiltersState } from '@/types/filters';
-
-interface FilterBarProps {
-  data: FilterCategory[];
-  selectedFilters: SelectedFiltersState;
-  onFilterSelect: (categoryId: string, value: string) => void;
-}
+import { FilterCategory, FilterBarProps } from '@/types/filters';
 
 export default function FilterBar({ data, selectedFilters, onFilterSelect }: FilterBarProps) {
-  const [activeFilter, setActiveFilter] = useState<FilterCategory | null>(null);
+  const [activeFilterId, setActiveFilterId] = useState<string | null>(null);
 
-  const handleSelect = (categoryId: string, value: string) => {
+  const activeCategory = data.find((cat) => cat.id === activeFilterId);
+
+  const handleToggleFilter = (item: FilterCategory) => {
+    if (activeFilterId === item.id) {
+      setActiveFilterId(null);
+    } else {
+      setActiveFilterId(item.id);
+    }
+  };
+
+  const handleSelectOption = (categoryId: string, value: string) => {
     onFilterSelect(categoryId, value);
-    setActiveFilter(null); // Cierra el modal
+    setActiveFilterId(null);
   };
 
   const renderFilterCard = ({ item }: { item: FilterCategory }) => {
     const isSelected = !!selectedFilters[item.id];
+    const isActive = activeFilterId === item.id;
 
     return (
       <Pressable
-        onPress={() => setActiveFilter(item)}
+        onPress={() => handleToggleFilter(item)}
         className={`mr-3 flex-row items-center rounded-xl border px-4 py-2 active:opacity-70
-          ${isSelected ? 'border-ocean-400 bg-ocean-50' : 'border-transparent bg-card'}`}>
+          ${isSelected || isActive ? 'border-ocean-400 bg-ocean-50' : 'border-transparent bg-card'}`}>
         <Text
           className={`mr-1 text-base font-medium 
-          ${isSelected ? 'text-ocean-800' : 'text-card-foreground'}`}>
+          ${isSelected || isActive ? 'text-ocean-800' : 'text-card-foreground'}`}>
           {item.title}
         </Text>
         <Feather
-          name="chevron-down"
+          name={isActive ? 'chevron-up' : 'chevron-down'}
           size={16}
-          className={isSelected ? 'text-ocean-600' : 'text-card-foreground'}
+          className={isSelected || isActive ? 'text-ocean-600' : 'text-card-foreground'}
         />
       </Pressable>
     );
   };
 
   return (
-    <View className="flex flex-row py-4">
+    <View className="py-4">
       <FlatList
         data={data}
         renderItem={renderFilterCard}
@@ -50,42 +55,26 @@ export default function FilterBar({ data, selectedFilters, onFilterSelect }: Fil
         contentContainerStyle={{ paddingHorizontal: 16 }}
       />
 
-      <Modal
-        visible={activeFilter !== null}
-        transparent={true}
-        animationType="fade"
-        statusBarTranslucent={true}>
-        <Pressable className="flex-1 justify-end bg-black/60" onPress={() => setActiveFilter(null)}>
-          {/* Se usa un Pressable interior para atrapar los toques y que no cierren el modal si se toca la tarjeta blanca */}
-          <Pressable
-            className="mb-safe-offset-20 m-4 rounded-t-3xl bg-card p-6 shadow-xl shadow-black/30"
-            onPress={(e) => e.stopPropagation()}>
-            <View className="mb-4 items-center">
-              <View className="h-1.5 w-12 rounded-full bg-neutral-300" />
-            </View>
-
-            <Text className="mb-6 text-xl font-bold text-card-foreground">
-              Seleccionar {activeFilter?.title}
-            </Text>
-
-            {activeFilter?.options.map((option) => (
+      {/* Contenedor de opciones */}
+      {activeCategory && (
+        <View className="mx-4 mt-4 rounded-xl border border-border bg-card p-2 shadow-sm">
+          {activeCategory.options.map((option) => {
+            const isOptionSelected = selectedFilters[activeCategory.id] === option.value;
+            return (
               <Pressable
                 key={option.value}
-                onPress={() => handleSelect(activeFilter.id, option.value)}
-                className="border-b border-border px-2 py-4 active:bg-neutral-100">
-                <View className="flex-row items-center justify-between">
-                  <Text className="text-lg text-card-foreground">{option.label}</Text>
-
-                  {/* Se muestra un check si la opción actual es la seleccionada */}
-                  {selectedFilters[activeFilter.id] === option.value && (
-                    <Feather name="check" size={20} className={'text-ocean-600'} />
-                  )}
-                </View>
+                onPress={() => handleSelectOption(activeCategory.id, option.value)}
+                className="flex-row items-center justify-between rounded-lg px-4 py-3 active:bg-neutral-100">
+                <Text
+                  className={`text-base ${isOptionSelected ? 'font-bold text-ocean-700' : 'text-card-foreground'}`}>
+                  {option.label}
+                </Text>
+                {isOptionSelected && <Feather name="check" size={18} className="text-ocean-600" />}
               </Pressable>
-            ))}
-          </Pressable>
-        </Pressable>
-      </Modal>
+            );
+          })}
+        </View>
+      )}
     </View>
   );
 }
