@@ -31,7 +31,9 @@ export default function InicioScreen() {
         />
       </View>
       {selectedBeach ? (
-        <Text className="text-center text-lg">Mapa</Text>
+        <Text className="text-center text-lg">
+          Mapa
+        </Text> /* Esto es solo una propuesta para manejar el contenido de la pantalla cuando aparezca un mapa */
       ) : (
         <FlatList
           data={MOCK_BEACHES}
