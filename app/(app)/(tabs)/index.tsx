@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, View } from 'react-native';
+import { FlatList, View, Text } from 'react-native';
 import FilterBar from '@/components/FilterBar';
 import BeachCard from '@/components/BeachCard';
 import BeachInfoModal from '@/components/BeachInfoModal';
@@ -30,28 +30,31 @@ export default function InicioScreen() {
           onFilterSelect={toggleFilter}
         />
       </View>
-
-      <FlatList
-        data={MOCK_BEACHES}
-        numColumns={2}
-        contentContainerStyle={{
-          paddingHorizontal: 16,
-          paddingBottom: 20,
-        }}
-        columnWrapperStyle={{
-          gap: 16,
-          marginBottom: 16,
-        }}
-        renderItem={({ item }) => (
-          <BeachCard
-            imageUrl={item.imageUrl}
-            name={item.name}
-            location={item.location}
-            onPress={() => handleOpenBeachModal(item)}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-      />
+      {selectedBeach ? (
+        <Text className="text-center text-lg">Mapa</Text>
+      ) : (
+        <FlatList
+          data={MOCK_BEACHES}
+          numColumns={2}
+          contentContainerStyle={{
+            paddingHorizontal: 16,
+            paddingBottom: 20,
+          }}
+          columnWrapperStyle={{
+            gap: 16,
+            marginBottom: 16,
+          }}
+          renderItem={({ item }) => (
+            <BeachCard
+              imageUrl={item.imageUrl}
+              name={item.name}
+              location={item.location}
+              onPress={() => handleOpenBeachModal(item)}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      )}
 
       <BeachInfoModal
         visible={!!selectedBeach}
